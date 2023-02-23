@@ -1,7 +1,9 @@
 const fibonacci = function(n) {
 
-    if (n < 1) {
-        return "OOPS"
+    if (n < 0) {
+        return "OOPS";
+    } else if (n === 0) { 
+        return 0;    
     } else {
         const fibArray = [1,1];
 
