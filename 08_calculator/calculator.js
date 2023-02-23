@@ -7,16 +7,25 @@ const subtract = function(a,b) {
 };
 
 const sum = function(inputArray) {
-	let sumArray = 0;
+	let outputValue = 0;
   inputArray.forEach(arrElement => {
-    sumArray += arrElement;
+    outputValue += arrElement;
   });
 
-  return sumArray;
+  return outputValue;
 };
 
-const multiply = function() {
+const multiply = function(inputArray) {
+  let outputValue = 0;
+  if (inputArray.length > 0) {
+    outputValue = 1;
+  }
+  inputArray.forEach(int => {
+    outputValue  = outputValue * int;
+  });
 
+  return outputValue
+  
 };
 
 const power = function() {
@@ -27,7 +36,8 @@ const factorial = function() {
 	
 };
 
-console.log(sum([1,2,3]))
+/* console.log(multiply([]));
+console.log(sum([2,3])); */
 
 // Do not edit below this line
 module.exports = {
