@@ -28,16 +28,27 @@ const multiply = function(inputArray) {
   
 };
 
-const power = function() {
-	
+const power = function(a,b) {
+	return a ** b;
 };
 
-const factorial = function() {
-	
+const factorial = function(a) {
+	if (Math.round(a) < 0) {
+    let outputValue = 1;
+    for (let i = Math.round(a); i <= -1; i++) {
+      outputValue = outputValue * i
+    }
+    return outputValue;
+  } else if (Math.round(a) == 0) {
+    return 1; 
+  } else {
+    let outputValue = 1;
+    for (let i = 1; i <= Math.round(a); i++) {
+      outputValue = outputValue * i
+    }
+    return outputValue;
+  }
 };
-
-/* console.log(multiply([]));
-console.log(sum([2,3])); */
 
 // Do not edit below this line
 module.exports = {
