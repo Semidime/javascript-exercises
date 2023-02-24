@@ -1,23 +1,30 @@
 const caesar = function(inputString,n) {
 const inputArray = inputString.split("");
 console.log(inputArray);
-
-
 let outputString = "";
-upperCaseRef = [];
-lowerCaseRef = [];
+let charShift = n % 26
+const upperCaseMin = 65;
+const upperCaseMax = 90;
+const lowerCaseMin = 97;
+const lowerCaseMax = 122;
 
 for (i=0; i < inputArray.length; i++) {
-    let letterRef = inputArray[i].charCodeAt()
+    let inputChar = inputArray[i].charCodeAt()
+    let outputChar;
     
-    if (letterRef >= 65 && letterRef <= 90) {
+    if (inputChar >= upperCaseMin && inputChar <= upperCaseMax) {
+        if (inputChar + charShift > upperCaseMax) {outputChar = inputChar + charShift - 26}
+        else if (inputChar + charShift < upperCaseMin) {outputChar = inputChar + charShift + 26}
+        else {outputChar = inputChar + charShift};
 
-
-        outputString += String.fromCharCode(letterRef+n)
+        outputString += String.fromCharCode(outputChar);
     }
-    else if (letterRef >= 97 && letterRef <= 122) {
+    else if (inputChar >= lowerCaseMin && inputChar <= lowerCaseMax) {
+        if (inputChar + charShift > lowerCaseMax) {outputChar = inputChar + charShift - 26}
+        else if (inputChar + charShift < lowerCaseMin) {outputChar = inputChar + charShift + 26}
+        else {outputChar = inputChar + charShift};
         
-        outputString += String.fromCharCode(letterRef+n)
+        outputString += String.fromCharCode(outputChar);
     }
     
     else outputString += inputArray[i];
@@ -27,7 +34,7 @@ console.log(outputString);
 return outputString;
 
 };
-caesar('A', 1)
+ caesar('Dirty String vest!', 51)
 
 // Do not edit below this line
 module.exports = caesar;
