@@ -5,12 +5,11 @@ const findTheOldest = function(inputArray) {
 
     for (i=0; i < inputArray.length; i++) {
 
-        if (typeof inputArray[i].yearOfDeath === "undefined") {
-            const d = new Date();
-            evalAge = d.getFullYear() - inputArray[i].yearOfBirth
+        if (!inputArray[i].yearOfDeath) {          
+            evalAge = new Date().getFullYear() - inputArray[i].yearOfBirth;
 
         } else {
-            evalAge = inputArray[i].yearOfDeath - inputArray[i].yearOfBirth
+            evalAge = inputArray[i].yearOfDeath - inputArray[i].yearOfBirth;
         }
         
         if (evalAge > oldestAge) {
